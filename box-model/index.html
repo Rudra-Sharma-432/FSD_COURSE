@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box - Model</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div id="content">
+      <div id="boxes">
+        <div id="box-1">
+          <p>BOX - 1</p>
+        </div>
+
+        <div id="box-2">
+          <p>BOX - 2</p>
+        </div>
+      </div>
+
+      <div id="edits">
+        <div id="box-1-edit">
+          <label for="margin-1">Margin for box 1</label>
+          <input type="range" id="margin-1" value="10" min="0" max="20">
+          <br>
+
+          <label for="border-1">Border for box 1</label>
+          <input type="range" id="border-1" value="2" min="0" max="20">
+          <br>
+
+          <label for="padding-1">Padding for box 1</label>
+          <input type="range" id="padding-1" value="5" min="0" max="20">
+        </div>
+
+        <div id="box-2-edit">
+          <label for="margin-2">Margin for box 2</label>
+          <input type="range" id="margin-2" value="10" min="0" max="20">
+          <br>
+
+          <label for="border-2">Border for box 2</label>
+          <input type="range" id="border-2" value="2" min="0" max="20">
+          <br>
+
+          <label for="padding-2">Padding for box 2</label>
+          <input type="range" id="padding-2" value="5" min="0" max="20">
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+
+</html>
