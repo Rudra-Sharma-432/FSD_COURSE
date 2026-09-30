@@ -36,9 +36,17 @@
 }
 
 #scroll-h {
-
+  display: flex;
 }
 
 #scroll-v {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow: scroll;
+}
+
+img {
+  height: 8em;
 }
