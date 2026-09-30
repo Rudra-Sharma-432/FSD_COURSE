@@ -37,16 +37,30 @@
 
 #scroll-h {
   display: flex;
+  overflow-x: auto;          /* Allows scrolling left-to-right */
+  overflow-y: hidden;        /* Prevents vertical clipping bugs */
+  white-space: nowrap;       /* Keeps images in a single line */
+  gap: 15px;                 /* Spacing between images */
+  padding: 15px;
+  width: 100%;               /* Spans full width of the container */
+  scroll-behavior: smooth;
 }
 
 #scroll-v {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;    /* Stack images top-to-bottom */
   align-items: center;
-  gap: 10px;
-  overflow: scroll;
+  overflow-y: auto;          /* Allows scrolling up-and-down */
+  overflow-x: hidden;        /* Prevents horizontal layout breaks */
+  gap: 15px;                 /* Spacing between images */
+  padding: 15px;
+  width: 100%;               /* Spans full width of the container */
+  height: 80%;              /* Uses all of the #vertical height */
+  scroll-behavior: smooth;
 }
 
 img {
   height: 8em;
+  object-fit: cover;         /* Keeps image proportions intact */
+  border-radius: 8px;
 }
