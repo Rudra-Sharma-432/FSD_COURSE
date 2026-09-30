@@ -2,8 +2,43 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
 #main {
-  height: 100%;
+  height: 100vh;
+  background-color: #331b79;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#second {
+  width: 70%;
+  height: 80%;
+  background-color: #230b57;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#horizontal {
+  height: 40%;
+}
+
+#vertical {
+  height: 60%;
+}
+
+#scroll-h {
+
+}
+
+#scroll-v {
+  
 }
