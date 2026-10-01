@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THABHAI</title>
+
+    <link rel="stylesheet" href="thabhai.css">
+  </head>
+
+  <body id="the-body">
+
+    <div id="the-div"></div>
+
+
+    <script>
+
+      const viewportWidth = window.innerWidth - 100;
+      const viewportHeight = window.innerHeight - 100;
+      const DIV = document.getElementById("the-div");
+
+      let x = 0, y = 0;
+      let vx = 0, vy = 0;
+      let ax = 0, ay = 0;
+
+      // 1. Keep track of which keys are currently held down
+      const keys = { w: false, a: false, s: false, d: false };
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key in keys) keys[event.key] = true;
+      });
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key in keys) keys[event.key] = false;
+      });
+
+      // 2. The core physics and animation loop running continuously
+      function update() {
+        // Apply acceleration based on active keys
+        if (keys.w) ay -= 0.1; // Reduced step sizes for smoother sub-pixel scaling
+        if (keys.a) ax -= 0.1;
+        if (keys.s) ay += 0.1;
+        if (keys.d) ax += 0.1;
+
+        vx += ax;
+        vy += ay;
+        x += vx;
+        y += vy;
+
+        // Collision checks
+        if (Math.abs(vx) > 0 && (x >= viewportWidth || x <= 0)) {
+          ax = 0;
+          vx = 0;
+        }
+        if (Math.abs(vy) > 0 && (y >= viewportHeight || y <= 0)) {
+          ay = 0;
+          vy = 0;
+        }
+
+        x = Math.max(0, Math.min(x, viewportWidth));
+        y = Math.max(0, Math.min(y, viewportHeight));
+
+        // Friction/Damping to slow down acceleration and velocity gracefully
+        ax *= 0.8;
+        ay *= 0.8;
+        vx *= 0.95;
+        vy *= 0.95;
+
+        // Render to screen
+        DIV.style.left = `${x}px`;
+        DIV.style.top = `${y}px`;
+
+        // Request next frame
+        requestAnimationFrame(update);
+      }
+
+      // Start the loop
+      requestAnimationFrame(update);
+
+    </script>
+  </body>
+
+</html>
